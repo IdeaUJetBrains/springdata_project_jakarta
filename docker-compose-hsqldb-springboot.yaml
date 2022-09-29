@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  mydb:
+    image: opavlova/db-hsqldb:springboot
+    container_name: my-hsqldb-for-springboot
+    ports:
+#      minikube
+#      - "192.168.49.2:9075:9001"
+#     usual docker
+      - "9070:9001"
+    command: hsqldb
+
+#docker:    jdbc:hsqldb:hsql://localhost:9070/test
+#minikube:    jdbc:hsqldb:hsql://localhost:9075/test
+#  Username: sa, Password :
+
+
+#It is BusyBox v1.24.2   image
