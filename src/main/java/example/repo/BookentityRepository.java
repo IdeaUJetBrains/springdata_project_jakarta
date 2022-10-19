@@ -38,15 +38,15 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     Integer test_except(long id);
 //=======================================================================================================================
 
-    // TODO    it doesn't work, run fails
+    // TODO    it doesn't work - request leads to   Whitelabel Error Page
     //select new
-//    @Query("select new  CallStatistics(	count(c) ) from Bookentity c  ")
-//    CallStatistics test_seelct_new();
+    @Query("select new  example.repo.CallStatistics(	count(c) ) from Bookentity c  ")
+    CallStatistics test_seelct_new();
 
 
-// TODO    it doesn't work - request leads to   Whitelabel Error Page
-//    //select new map
-    @Query("select new map(c.title as test1 , sum(c.id) as test2 )  from Bookentity c" )
+
+    //select new map
+    @Query("select new map(c.title  )  from Bookentity c" )
     List<Map> test_select_map( );
 
 

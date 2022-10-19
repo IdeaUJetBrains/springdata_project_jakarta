@@ -37,30 +37,30 @@ public class Hibernate6TestController {
 
 
 
-    // TODO    it doesn't work, run fails
+    // TODO    it doesn't work  - request leads to   Whitelabel Error Page
     //    http://localhost:9092/h6/test_seelct_new
-//    @GetMapping("/test_seelct_new")
-//    public String test_seelct_new( ) {
-//        return bookentityRepository.test_seelct_new( ).toString();
-//    }
+    @GetMapping("/test_seelct_new")
+    public CallStatistics test_seelct_new( ) {
+        return bookentityRepository.test_seelct_new( );
+    }
 
 
-    // TODO    it doesn't work - request leads to   Whitelabel Error Page
-    //    http://localhost:9092/h6/test_select_map
+
+//  localhost:9092/h6/test_select_map
     @GetMapping("/test_select_map ")
     public List<Map> test_select_map( ) {
         return bookentityRepository.test_select_map(  );
     }
 
 
-//    http://localhost:9092/h6/test_select_list
+//  localhost:9092/h6/test_select_list
     @GetMapping("/test_select_list")
     public List<List> test_select_list() {
         return bookentityRepository.test_select_list( );
     }
 
 
-//    http://localhost:9092/h6/test_listagg/
+//  localhost:9092/h6/test_select_list
     @GetMapping("/test_listagg")
     public  List<List> test_listagg( ) {
         return bookentityRepository.test_listagg( );
