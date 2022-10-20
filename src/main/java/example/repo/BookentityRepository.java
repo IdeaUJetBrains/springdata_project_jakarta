@@ -91,7 +91,8 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     String test_date5( );
 
 
-    //TODO it doesn't suggest second, minute, hour for completion in queries:
+    //TODO it doesn't suggest second, minute, hour for completion in queries: https://youtrack.jetbrains.com/issue/IDEA-304235
+
     @Query("select second(current_time())")
     String test_date6( );
 
@@ -101,8 +102,10 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     @Query("select hour(current_time())")
     String test_date8( );
 
-
-
+//======================================================================================
+// Hexadecimal literals
+    @Query("select a from Bookentity a where a.id > 0X0001")
+    List<List> test_Hexadecimal( );
 
 
 

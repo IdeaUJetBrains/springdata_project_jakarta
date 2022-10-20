@@ -101,4 +101,10 @@ public class Hibernate6TestController {
         return bookentityRepository.test_date8();
     }
 
+//======================================================================================
+// Hexadecimal literals
+@GetMapping("/hexadecimal")
+public  List<List> test_Hexadecimal( ) {
+    return bookentityRepository.test_Hexadecimal();
+}
 }
