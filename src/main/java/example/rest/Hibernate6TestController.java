@@ -66,5 +66,39 @@ public class Hibernate6TestController {
         return bookentityRepository.test_listagg( );
     }
 
+//    =========================================================================
+
+    @GetMapping("/date1")
+    public  String test_date1( ) {
+        return bookentityRepository.test_date1();
+    }
+    @GetMapping("/date2")
+    public  String test_date2( ) {
+        return bookentityRepository.test_date2();
+    }
+    @GetMapping("/date3")
+    public  String test_date3( ) {
+        return bookentityRepository.test_date3();
+    }
+    @GetMapping("/date4")
+    public  String test_date4( ) {
+        return bookentityRepository.test_date4();
+    }
+    @GetMapping("/date5")
+    public  String test_date5( ) {
+        return bookentityRepository.test_date5();
+    }
+    @GetMapping("/date6")
+    public  String test_date6( ) {
+        return bookentityRepository.test_date6();
+    }
+    @GetMapping("/date7")
+    public  String test_date7( ) {
+        return bookentityRepository.test_date7();
+    }
+    @GetMapping("/date8")
+    public  String test_date8( ) {
+        return bookentityRepository.test_date8();
+    }
 
 }
