@@ -111,9 +111,9 @@ public  List<List> test_Hexadecimal( ) {
 
 //======================================================================================
 // Datetime arithmetic:  arithmetic operations
-    @GetMapping("/arithmetic1")
-    public  List<Integer> testArithmetic1( ) {
-        return bookentityRepository.testArithmetic1();
+    @GetMapping("/byunit")
+    public  List<Integer> testByUnitOperator( ) {
+        return bookentityRepository.testByUnitOperator();
     }
 
 //======================================================================================

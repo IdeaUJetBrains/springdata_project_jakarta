@@ -125,7 +125,7 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
 
     //    "by unit" operator
     @Query("select (local date - p.vDate) by day  from DateTimeTypesTable p")
-    List<Integer> testArithmetic1();
+    List<Integer> testByUnitOperator();
 
     //======================================================================================
     // every() and any() aggregate functions
