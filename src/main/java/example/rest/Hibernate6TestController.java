@@ -109,10 +109,22 @@ public  List<List> test_Hexadecimal( ) {
 }
 
 
-    //======================================================================================
-// Hexadecimal literals
+//======================================================================================
+// Datetime arithmetic:  arithmetic operations
     @GetMapping("/arithmetic1")
     public  List<Integer> testArithmetic1( ) {
         return bookentityRepository.testArithmetic1();
     }
+
+//======================================================================================
+// every() and any() aggregate functions
+    @GetMapping("/every")
+    public  List<Boolean> testEvery( ) {
+        return bookentityRepository.testEvery();
+    }
+    @GetMapping("/any")
+    public  List<Boolean> testAny( ) {
+        return bookentityRepository.testAny();
+    }
+
 }

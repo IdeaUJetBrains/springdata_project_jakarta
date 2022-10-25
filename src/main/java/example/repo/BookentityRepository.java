@@ -127,4 +127,11 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     @Query("select (local date - p.vDate) by day  from DateTimeTypesTable p")
     List<Integer> testArithmetic1();
 
+    //======================================================================================
+    // every() and any() aggregate functions
+
+    @Query("select every(p.id < 1000 )    from Bookentity p")
+    List<Boolean> testEvery();
+    @Query("select any(p.id < 1000 )    from Bookentity p")
+    List<Boolean> testAny();
 }
