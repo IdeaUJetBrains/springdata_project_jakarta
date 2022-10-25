@@ -107,4 +107,12 @@ public class Hibernate6TestController {
 public  List<List> test_Hexadecimal( ) {
     return bookentityRepository.test_Hexadecimal();
 }
+
+
+    //======================================================================================
+// Hexadecimal literals
+    @GetMapping("/arithmetic1")
+    public  List<Integer> testArithmetic1( ) {
+        return bookentityRepository.testArithmetic1();
+    }
 }

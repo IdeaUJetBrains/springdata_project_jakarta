@@ -1,6 +1,7 @@
 package example.repo;
 
 import example.data.Bookentity;
+import example.data.Enumstest;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -108,5 +109,22 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     List<List> test_Hexadecimal( );
 
 
+    //======================================================================================
+    // Enum literals
+    @Query("SELECT o FROM Enumstest o WHERE o.type = 'LAND_LINE' OR o.type = 'MOBILE'")
+    List<Enumstest> testEnums();
+    @Query("SELECT o FROM Enumstest o WHERE o.type = LAND_LINE OR o.type = MOBILE")
+    List<Enumstest> testEnums1();
+    @Query("SELECT o FROM Enumstest o WHERE o.type IN ('LAND_LINE','MOBILE')")
+    List<Enumstest> testEnums2();
+    @Query("SELECT o FROM Enumstest o WHERE o.type IN (LAND_LINE,MOBILE)")
+    List<Enumstest> testEnums3();
+
+    //======================================================================================
+    // Datetime arithmetic:  arithmetic operations
+
+    //    "by unit" operator
+    @Query("select (local date - p.vDate) by day  from DateTimeTypesTable p")
+    List<Integer> testArithmetic1();
 
 }
