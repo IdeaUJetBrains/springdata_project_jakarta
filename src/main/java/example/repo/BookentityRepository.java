@@ -134,4 +134,19 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     List<Boolean> testEvery();
     @Query("select any(p.id < 1000 )    from Bookentity p")
     List<Boolean> testAny();
+
+    //======================================================================================
+
+//    collate() function
+    @Query("select collate(p.title as  SQL_TEXT_UCC)  from Bookentity p")
+    List<String> testCollate();
+
+//    format() function
+    @Query("select  format(local datetime, 'YYYY-MM-DD') ")
+    List<String> testFormat();
+
+//    sql() function
+    @Query("select a.id from Bookentity a order by sql('?', a.title) ")
+    List<String> testSql();
+
 }

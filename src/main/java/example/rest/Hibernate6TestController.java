@@ -6,6 +6,7 @@ import example.exceptions.BookentityNotFoundException;
 import example.repo.BookentityRepository;
 import example.repo.CallStatistics;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -126,5 +127,28 @@ public  List<List> test_Hexadecimal( ) {
     public  List<Boolean> testAny( ) {
         return bookentityRepository.testAny();
     }
+
+    //======================================================================================
+
+    //    collate() function
+    @GetMapping("/collate")
+    public  List<String> testCollate( ) {
+        return bookentityRepository.testCollate();
+    }
+
+
+    //    format() function
+    @GetMapping("/format")
+    public  List<String> testFormat( ) {
+        return bookentityRepository.testFormat();
+    }
+
+
+    //    sql() function
+    @GetMapping("/sql")
+    public  List<String> testSql( ) {
+        return bookentityRepository.testSql();
+    }
+
 
 }
