@@ -149,4 +149,146 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     @Query("select a.id from Bookentity a order by sql('?', a.title) ")
     List<String> testSql();
 
+
+    //======================================================================================
+
+//    other functions
+    @Query("select nullif(p.author, p.author)  from Bookentity p")
+    List<String> test_nullif();
+    @Query("select case when p.title = p.title then null else p.title	end from Bookentity p")
+    List<String> test_case();
+    @Query("select coalesce(p.title, '<no nick name>')  from Bookentity p")
+    List<String> test_coalesce();
+    @Query("select concat (p.title, ':', cast(p.id as string))  from  Bookentity p")
+    List<String> test_concat();
+    @Query("select substring(p.title, 1,2)  from Bookentity p")
+    List<String> test_substring();
+    @Query("select upper(p.title)  from Bookentity p")
+    List<String> test_upper();
+    @Query("select lower(p.title)  from Bookentity p")
+    List<String> test_lower();
+    @Query("select trim(leading ' ' from p.title)  from Bookentity p")
+    List<String> test_trim();
+    @Query("select length(p.title)  from Bookentity p")
+    List<String> test_length();
+    @Query("select locate('John',p.title)  from Bookentity p")
+    List<String> test_locate();
+    @Query("select abs(p.id)  from Bookentity p")
+    List<String> test_abs();
+    @Query("select mod(p.id, 10)  from Bookentity p")
+    List<String> test_mod();
+    @Query("select sqrt(p.id)  from Bookentity p")
+    List<String> test_sqrt();
+    @Query("select count(p.id)  from Bookentity p")
+    List<String> test_count();
+    @Query("select count(*)  from Bookentity p")
+    List<String> test_count1();
+
+
+    @Query("select sum(p.id)  from Bookentity p")
+    List<String> test_sum();
+    @Query("select min(p.id)  from Bookentity p")
+    List<String> test_min();
+    @Query("select max(p.id)  from Bookentity p")
+    List<String> test_max();
+    @Query("select avg (p.id)  from Bookentity p")
+    List<String> test_avg();
+
+
+    @Query("select every(p.id < 1000 )    from Bookentity p")
+    List<String> test_every();
+    @Query("select any(p.id < 1000 )    from Bookentity p")
+    List<String> test_any();
+
+
+
+
+    @Query("select cast(p.title as String)  from Bookentity p")
+    List<String> test_cast();
+    @Query("select extract(month from local date) ")
+    List<String> test_extract();
+    @Query("select a from  Bookentity a where a.id  in (1,2,3)")
+    List<String> test_in();
+    @Query("select exp(p.id)  from Bookentity p")
+    List<String> test_exp();
+
+
+    //        power(arg0, arg1)  returns arg0 value raised to the arg1  power.
+    @Query("select power(p.id, 2)  from Bookentity p")
+    List<String> test_power();
+
+    //      floor(arg)  -  returns the largest integer less than or equal to the given value  arg.
+    @Query("select floor(p.id)  from Bookentity p")
+    List<String> test_floor();
+
+    //     position (substr IN str)   - returns the position of a substring within a string
+    @Query("select p from Bookentity p where position ('1' in p.title) = 0")
+    List<String> test_position();
+
+    //        OVERLAY ( <char value expr 1> PLACING <char value expr 2> FROM <start position> [ FOR <string length> ] [ USING CHARACTERS ] )
+//       The character version of OVERLAY returns a character string based on <char value expr 1>
+//       in which <string length> characters have been removed from the <start position> and in their place, the whole <char value expr 2> is copied.
+    @Query("select overlay(p.title  PLACING  'TEST' from 7 FOR 1 )  from Bookentity p")
+    List<String> test_overlay();
+
+
+//=====================================================================================================================================================
+//        a number of additional "standard" functions:
+
+    //        left(string, length) - returns a character string from the left
+    @Query("select left(p.title, 1)  from Bookentity p")
+    List<String> test_left();
+    //        right(string, length) - returns a character string from the right
+    @Query("select right(p.title, 1)  from Bookentity p")
+    List<String> test_right();
+    //        replace(string, pattern, replacement)
+    @Query("select replace(p.title, '1','4')  from Bookentity p")
+    List<String> test_replace();
+
+
+    //        log10(arg)
+    @Query("select log10(p.id)  from Bookentity p")
+    List<String> test_log10();
+    //        sign(arg)
+    @Query("select sign(p.id)  from Bookentity p")
+    List<String> test_sign();
+    //        sin(arg)
+    @Query("select sin(p.id)  from Bookentity p")
+    List<String> test_sin();
+    //         cos(arg)
+    @Query("select cos(p.id)  from Bookentity p")
+    List<String> test_cos();
+    //        asin(arg)
+    @Query("select asin(p.id)  from Bookentity p")
+    List<String> test_asin();
+    //        acos(arg)
+    @Query("select acos(p.id)  from Bookentity p")
+    List<String> test_acos();
+    //        tan(arg)
+    @Query("select tan(p.id)  from Bookentity p")
+    List<String> test_tan();
+    //        atan(arg)
+    @Query("select atan(p.id)  from Bookentity p")
+    List<String> test_atan();
+    //        atan2(arg0, arg1)
+    @Query("select atan2(p.id, 1)  from Bookentity p")
+    List<String> test_atan2();
+    //        round(arg0, arg1)
+    @Query("select round(p.id, 2)  from Bookentity p")
+    List<String> test_round();
+    //        least(arg0, arg1, ...)
+    @Query("select least(p.id,3)  from Bookentity p")
+    List<String> test_least();
+    //        greatest(arg0, arg1, ...)
+    @Query("select greatest(p.id, 3)  from Bookentity p")
+    List<String> test_greatest();
+
+
+    //str(arg) - synonym of cast(a as String)
+    @Query("select str(p.title)  from Bookentity p")
+    List<String> test_str();
+    //        ifnull(arg0, arg1) - synonym of coalesce(a, b)      ,  COALESCE function returns the first non-NULL expression in the specified list.
+    @Query("select ifnull(p.title, '2')  from Bookentity p")
+    List<String> test_ifnull();
+
 }
