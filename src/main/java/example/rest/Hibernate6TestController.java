@@ -152,4 +152,11 @@ public  List<List> test_Hexadecimal( ) {
     }
 
 
+//    need to run hsqldb_data_version_naturalId_test.sql  to have the corresponding tables
+    @GetMapping("/naturalid")
+    public  List<String> naturalid( ) {
+        return bookentityRepository.test_naturalid();
+    }
+
+
 }
