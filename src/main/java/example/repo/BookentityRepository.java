@@ -92,8 +92,6 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     String test_date5( );
 
 
-    //TODO it doesn't suggest second, minute, hour for completion in queries: https://youtrack.jetbrains.com/issue/IDEA-304235
-
     @Query("select second(current_time())")
     String test_date6( );
 
@@ -290,5 +288,16 @@ public interface BookentityRepository extends CrudRepository<Bookentity, Long> {
     //        ifnull(arg0, arg1) - synonym of coalesce(a, b)      ,  COALESCE function returns the first non-NULL expression in the specified list.
     @Query("select ifnull(p.title, '2')  from Bookentity p")
     List<String> test_ifnull();
+
+
+    @Query("select id(p)    from Entitybusversion p")
+    List<String> test_id();
+
+    @Query("select version(p)    from Entitybusversion p")
+    List<String> test_version();
+
+    @Query("select naturalid(p)    from Entitybusversion p")
+    List<String> test_naturalid();
+
 
 }
